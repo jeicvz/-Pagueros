@@ -177,8 +177,6 @@ class SquareFactory extends FigFactory {
     return new Square(this.lado);
   }
 }
-
-// Main - ejecución
 const factories = [
   new TriangleFactory(3.0, 4.0),
   new CircleFactory(2.5),
