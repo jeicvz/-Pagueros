@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pago Exitoso</title>
+  </head>
+  <body>
+    <h2>✅ ¡Pago realizado con éxito!</h2>
+    <p><strong>Correo:</strong> <%= email %></p>
+    <p><strong>Monto:</strong> $<%= amount %></p>
+    <p><strong>Método:</strong> <%= paymentMethod %></p>
+    <p><strong>Mensaje:</strong> <%= msg %></p>
+
+    <a href="/payment-form">← Volver al formulario</a>
+  </body>
+</html>

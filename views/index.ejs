@@ -1,11 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="UTF-8" />
+    <title>XPAY</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f0f0f0;
+        padding: 20px;
+      }
+
+      form,
+      .transacciones {
+        background: white;
+        padding: 20px;
+        margin-top: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+      }
+
+      label,
+      select,
+      input,
+      button {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .transacciones ul {
+        padding-left: 20px;
+      }
+    </style>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h2>XPAY</h2>
+
+    <form id="formularioPago" method="POST" action="/payment-process">
+      <label for="email">Correo electrónico del cliente:</label>
+      <input type="email" name="email" id="email" required />
+
+      <label for="amount">Monto a pagar:</label>
+      <input type="number" name="amount" id="amount" min="1" required />
+
+      <label for="paymentMethod">Método de pago:</label>
+      <select name="paymentMethod" id="paymentMethod" required>
+        <option value="">-- Selecciona --</option>
+        <option value="bankTransfer">Transferencia</option>
+        <option value="paypal">PayPal</option>
+        <option value="creditCard">Tarjeta de Crédito</option>
+      </select>
+
+      <button type="submit">Pagar</button>
+    </form>
+
+    <br />
+
+    <form action="/payment-history" method="get">
+      <button type="submit">Ver historial</button>
+    </form>
   </body>
 </html>
