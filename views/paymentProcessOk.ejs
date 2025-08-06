@@ -3,9 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <title>Pago Exitoso</title>
+    <style>
+      body {
+        background-color: #ffffff; /* fondo blanco */
+        color: #34495e; /* azul marino suave */
+        font-family: Arial, sans-serif;
+        padding: 2rem;
+        text-align: center;
+        font-size: 1.3rem; /* letras más grandes */
+      }
+      h2 {
+        font-size: 2.5rem; /* título más grande */
+        margin-bottom: 1rem;
+      }
+      p {
+        margin: 0.8rem 0;
+      }
+      a {
+        display: inline-block;
+        margin-top: 20px;
+        color: #34495e; /* mismo azul marino */
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
-    <h2>✅ ¡Pago realizado con éxito!</h2>
+    <h2>👍 ¡Pago realizado con éxito!</h2>
     <p><strong>Correo:</strong> <%= email %></p>
     <p><strong>Monto:</strong> $<%= amount %></p>
     <p><strong>Método:</strong> <%= paymentMethod %></p>

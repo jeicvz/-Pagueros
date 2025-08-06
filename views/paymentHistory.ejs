@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Historial de Pagos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #fff; /* fondo blanco limpio */
+        padding: 20px;
+        text-align: center;
+      }
+
+      h2 {
+        color: #34495e; /* azul marino oscuro */
+        font-size: 2.5rem;
+        margin-bottom: 25px;
+      }
+
+      table {
+        width: 90%;
+        max-width: 900px;
+        margin: 0 auto;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: #34495e; /* azul marino */
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      th {
+        border: 1px solid #2c3e50; /* azul más oscuro para bordes */
+        padding: 12px;
+        color: #ecf0f1; /* texto claro para buen contraste */
+        font-size: 1.1rem;
+        background: #2c3e50; /* azul más oscuro para encabezados */
+      }
+
+      td {
+        border: 1px solid #2c3e50; /* azul más oscuro para bordes */
+        padding: 12px;
+        color: #000; /* texto negro para contenido */
+        font-size: 1.1rem;
+        background-color: #fff; /* fondo blanco para las celdas */
+      }
+
+      /* Colores para el estado */
+      .status-ok {
+        color: #2ecc71; /* verde */
+        font-weight: bold;
+      }
+
+      .status-error {
+        color: #e74c3c; /* rojo */
+        font-weight: bold;
+      }
+
+      a.button {
+        display: inline-block;
+        margin-top: 25px;
+        text-decoration: none;
+        background-color: #999999; /* gris tenue */
+        color: white;
+        font-weight: bold;
+        font-size: 1.1rem;
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      a.button:hover {
+        background-color: #666666; /* gris oscuro al pasar el mouse */
+        color: white;
+        text-decoration: none;
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: #34495e;
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>📋 Historial de Pagos</h2>
+    <% if (payments.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Correo</th>
+          <th>Monto</th>
+          <th>Método</th>
+          <th>Estado del pago</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% payments.forEach(p => { %>
+        <tr>
+          <td><%= p.email %></td>
+          <td>$<%= p.amount %></td>
+          <td><%= p.paymentMethod %></td>
+          <td class="<%= p.status === 'OK' ? 'status-ok' : 'status-error' %>">
+            <%= p.status === 'OK' ? 'Aceptado' : 'Error' %>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <% } else { %>
+    <p>No hay pagos registrados.</p>
+    <% } %>
+
+    <a href="/payment-form" class="button">← Volver al formulario</a>
+  </body>
+</html>

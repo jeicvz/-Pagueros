@@ -6,27 +6,68 @@
     <style>
       body {
         font-family: Arial, sans-serif;
-        background: #f0f0f0;
-        padding: 20px;
+        background: #ffffff; /* fondo blanco */
+        padding: 40px;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 3rem;
+        color: #2c3e50; /* azul marino oscuro para el título */
+        margin-bottom: 30px;
       }
 
       form,
       .transacciones {
-        background: white;
-        padding: 20px;
-        margin-top: 10px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        max-width: 400px;
+        background: #34495e; /* azul marino suave */
+        padding: 30px;
+        margin: 20px auto;
+        border-radius: 12px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        text-align: left;
+        color: white; /* texto blanco dentro del cuadro */
       }
 
-      label,
-      select,
-      input,
-      button {
+      label {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #ecf0f1; /* gris clarito para etiquetas */
+        margin-bottom: 5px;
         display: block;
+      }
+
+      input,
+      select {
+        font-size: 1.1rem;
+        padding: 10px;
+        margin-bottom: 15px;
         width: 100%;
-        margin-bottom: 10px;
+        border-radius: 6px;
+        border: 1px solid #7f8c8d; /* borde gris tenue */
+        background-color: #ecf0f1; /* gris muy claro para inputs */
+        color: #2c3e50; /* texto azul oscuro en inputs */
+      }
+
+      .boton-centro {
+        text-align: center;
+      }
+
+      button {
+        background-color: #7f8c8d; /* gris tenue para botones */
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-size: 1.1rem;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #95a5a6; /* gris más claro al pasar mouse */
       }
 
       .transacciones ul {
@@ -52,13 +93,15 @@
         <option value="creditCard">Tarjeta de Crédito</option>
       </select>
 
-      <button type="submit">Pagar</button>
+      <div class="boton-centro">
+        <button type="submit">Pagar</button>
+      </div>
     </form>
 
-    <br />
-
     <form action="/payment-history" method="get">
-      <button type="submit">Ver historial</button>
+      <div class="boton-centro">
+        <button type="submit">Ver historial</button>
+      </div>
     </form>
   </body>
 </html>

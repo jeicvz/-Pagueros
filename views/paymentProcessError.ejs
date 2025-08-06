@@ -3,11 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <title>Error en el Pago</title>
+    <style>
+      body {
+        background-color: #ffffff; /* fondo blanco */
+        color: #777777; /* gris tenue que usamos */
+        font-family: Arial, sans-serif;
+        padding: 2rem;
+        text-align: center;
+        font-size: 1.3rem; /* letras más grandes */
+      }
+      h2 {
+        font-size: 2.5rem; /* título grande */
+        margin-bottom: 1rem;
+        color: #555555; /* gris más oscuro para el título */
+      }
+      p {
+        margin: 0.8rem 0;
+      }
+      a {
+        display: inline-block;
+        margin-top: 20px;
+        color: #777777; /* mismo gris tenue para enlace */
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
     <h2>❌ Error al procesar el pago</h2>
     <p><strong>Mensaje de error:</strong> <%= errorMessage %></p>
-
     <a href="/payment-form">← Volver al formulario</a>
   </body>
 </html>
