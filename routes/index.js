@@ -406,11 +406,33 @@ router.post("/payment-process", function (req, res, next) {
   });
 });
 
-// GET payment history
 router.get("/payment-history", function (req, res, next) {
-  // get the payments from the repository
   const payments = PaymentArrayRepo.getPayments();
-  // render the payment history view with the payments
-  res.json({ payments: payments });
+  res.render("paymentHistory", { payments }); // Renderiza la vista con datos
 });
+
+router.post("/payment-process", function (req, res, next) {
+  console.log(req.body);
+  const email = req.body.email;
+  const amount = req.body.amount;
+  const paymentMethod = req.body.paymentMethod;
+  const paymentFormReq = new PaymentFormReq(email, amount, paymentMethod);
+  const paymentService = new PaymentService(PaymentArrayRepo);
+  const paymentServiceRes = paymentService.processPayment(paymentFormReq);
+
+  if (paymentServiceRes.status !== "OK") {
+    return res.render("paymentProcessError", {
+      errorMessage: paymentServiceRes.msg,
+    });
+  }
+
+  res.render("paymentProcessOk", {
+    email,
+    amount,
+    paymentMethod,
+    msg: paymentServiceRes.msg,
+  });
+});
+
+// 👇 ESTA es la línea final correcta del archivo:
 module.exports = router;
